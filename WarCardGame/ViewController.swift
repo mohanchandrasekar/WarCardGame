@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var rightCpuScore: UILabel!
     
+    private var leftScore = 0
+    private var rightScore = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +37,18 @@ class ViewController: UIViewController {
         leftCardView.image = UIImage(named: "card\(leftNumber)")
         
         rightCardView.image = UIImage(named: "card\(rightNumber)")
+        
+        if leftNumber > rightNumber{
+            leftScore += 1
+            leftPlayerScore.text = String(leftScore)
+        }else if leftNumber < rightNumber {
+            rightScore += 1
+            rightCpuScore.text = String(rightScore)
+            
+        } else{
+            //Tie
+            print("Match tie")
+        }
         
     }
     
